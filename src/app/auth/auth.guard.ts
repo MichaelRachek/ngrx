@@ -7,7 +7,7 @@ import {tap} from 'rxjs/operators';
 import { isLoggedIn } from './store/auth.selectors';
 
 @Injectable()
-export class AuthGuard  {
+export class AuthGuard {
 
     constructor(
         private store: Store<AppState>,

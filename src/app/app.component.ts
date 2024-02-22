@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
 
     if (userProfile) {
       this.store.dispatch(LoginAction({user: JSON.parse(userProfile)}));
+      this.router.navigateByUrl('/courses')
     }
 
     this.router.events.subscribe(event => {

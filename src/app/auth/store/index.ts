@@ -1,7 +1,6 @@
 import { ActionReducerMap, createReducer, on } from '@ngrx/store';
 import { User } from '../model/user.model';
 import { AuthActions } from './action-types';
-import { state } from '@angular/animations';
 
 export const authFeatureKey = 'auth';
 
@@ -12,9 +11,6 @@ export interface AuthState {
 export const authState: AuthState = {
   user: undefined
 };
-
-// export const reducers: ActionReducerMap<AuthState> = {};
-
 
 export const authReducer = createReducer(
   authState,

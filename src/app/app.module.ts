@@ -58,7 +58,7 @@ const routes: Routes = [
         strictStateImmutability: true,
         strictActionImmutability: true,
         strictActionSerializability: true,
-        strictStateSerializability: true
+        strictStateSerializability:true
       }
     }),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
