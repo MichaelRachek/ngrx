@@ -6,6 +6,16 @@
         <span>Courses</span>
       </a>
 
+      <a mat-list-item routerLink="/courses-use-entity">
+        <mat-icon>library_books</mat-icon>
+        <span>Ngrx Entity</span>
+      </a>
+
+      <a mat-list-item routerLink="/about">
+        <mat-icon>info</mat-icon>
+        <span>About</span>
+      </a>
+
       @if (isLoggedOut$ | async) {
         <a mat-list-item routerLink="/login">
           <mat-icon>account_circle</mat-icon>

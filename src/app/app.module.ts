@@ -21,12 +21,18 @@ import { EffectsModule } from '@ngrx/effects';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { metaReducers, reducers } from './reducers';
 import { AuthGuard } from './auth/auth.guard';
+import { EntityDataModule } from '@ngrx/data';
 
 
 const routes: Routes = [
   {
     path: 'courses',
     loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'courses-use-entity',
+    loadChildren: () => import('./courses-entity/courses-entity.module').then(m => m.CoursesEntityModule),
     canActivate: [AuthGuard]
   },
   {
@@ -66,7 +72,8 @@ const routes: Routes = [
     StoreRouterConnectingModule.forRoot({
       stateKey: 'router',
       routerState: RouterState.Minimal
-    })
+    }),
+    EntityDataModule.forRoot({})
   ],
   bootstrap: [AppComponent]
 })
