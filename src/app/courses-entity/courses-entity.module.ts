@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { HomeEntityComponent } from './home/home-entity.component';
 import { CoursesEntityCardListComponent } from './courses-card-list/courses-entity-card-list.component';
 import { EditCourseEntityDialogComponent } from './edit-course-dialog/edit-course-entity-dialog.component';
-import { CoursesHttpService } from './services/courses-http.service';
 import { CourseEntityComponent } from './course/course-entity.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -27,6 +26,8 @@ import { EntityDataService, EntityDefinitionService, EntityMetadataMap } from '@
 import { CourseEntityService } from './services/course-entity.service';
 import { CourseDataService } from './services/course-data.service';
 import { compareCourses } from './model/course';
+import { compareLessons } from '../courses/model/lesson';
+import { LessonEntityService } from './services/lesson-entity.service';
 
 export const coursesRoutes: Routes = [
   {
@@ -53,6 +54,9 @@ const entityMetadata: EntityMetadataMap = {
       // use only when Id generate on FE side
       // optimisticAdd: true
     }
+  },
+  Lesson: {
+    sortComparer: compareLessons
   }
 };
 
@@ -89,10 +93,10 @@ const entityMetadata: EntityMetadataMap = {
     CourseEntityComponent
   ],
   providers: [
-    CoursesHttpService,
     CourseResolver,
     CourseEntityService,
-    CourseDataService
+    CourseDataService,
+    LessonEntityService
   ]
 })
 export class CoursesEntityModule {
@@ -101,7 +105,7 @@ export class CoursesEntityModule {
               private courseDataService: CourseDataService) {
     eds.registerMetadataMap(entityMetadata);
 
-    // if we use some custom mapper
+    // if we use some custom mapper or costomise ips methods, for example our urls different that ngrx expects
     entityDataService.registerService('Course', courseDataService);
   }
 }

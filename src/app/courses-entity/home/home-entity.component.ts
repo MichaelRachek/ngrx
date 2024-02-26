@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Course } from '../model/course';
 import { Observable } from 'rxjs';
 import { defaultDialogConfig } from '../shared/default-dialog-config';
@@ -10,7 +10,8 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'home-course-entity',
   templateUrl: './home-entity.component.html',
-  styleUrls: ['./home-entity.component.css']
+  styleUrls: ['./home-entity.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeEntityComponent implements OnInit {
   promoTotal$: Observable<number>;

@@ -1,6 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 import { Course } from '../model/course';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { EditCourseEntityDialogComponent } from '../edit-course-dialog/edit-course-entity-dialog.component';
 import { defaultDialogConfig } from '../shared/default-dialog-config';
 import { CourseEntityService } from '../services/course-entity.service';
@@ -8,7 +14,8 @@ import { CourseEntityService } from '../services/course-entity.service';
 @Component({
   selector: 'courses-course-entity-card-list',
   templateUrl: './courses-entity-card-list.component.html',
-  styleUrls: ['./courses-entity-card-list.component.css']
+  styleUrls: ['./courses-entity-card-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CoursesEntityCardListComponent {
 

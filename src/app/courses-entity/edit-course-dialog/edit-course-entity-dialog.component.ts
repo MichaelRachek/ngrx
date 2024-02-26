@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Course } from '../model/course';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -7,7 +7,8 @@ import { CourseEntityService } from '../services/course-entity.service';
 @Component({
   selector: 'course-course-entity-dialog',
   templateUrl: './edit-course-entity-dialog.component.html',
-  styleUrls: ['./edit-course-entity-dialog.component.css']
+  styleUrls: ['./edit-course-entity-dialog.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditCourseEntityDialogComponent implements OnInit {
 
