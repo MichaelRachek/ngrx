@@ -10,8 +10,6 @@ export interface Course {
   lessonsCount: number;
   promo: boolean;
 }
-
-
 export function compareCourses(c1: Course, c2: Course) {
 
   const compare = c1.seqNo - c2.seqNo;

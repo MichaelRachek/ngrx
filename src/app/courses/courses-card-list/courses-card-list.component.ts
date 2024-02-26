@@ -9,7 +9,7 @@ import { defaultDialogConfig } from '../shared/default-dialog-config';
   templateUrl: './courses-card-list.component.html',
   styleUrls: ['./courses-card-list.component.css']
 })
-export class CoursesCardListComponent implements OnInit {
+export class CoursesCardListComponent {
 
   @Input()
   courses: Course[];
@@ -19,10 +19,6 @@ export class CoursesCardListComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog) {
-  }
-
-  ngOnInit() {
-
   }
 
   editCourse(course: Course) {
@@ -42,8 +38,6 @@ export class CoursesCardListComponent implements OnInit {
   }
 
   onDeleteCourse(course: Course) {
-
-
   }
 
 }

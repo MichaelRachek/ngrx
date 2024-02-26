@@ -68,5 +68,4 @@ export class EditCourseDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-
 }
