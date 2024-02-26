@@ -58,7 +58,7 @@ export class EditCourseEntityDialogComponent implements OnInit {
       this.service.update(course);
       this.dialogRef.close();
     } else {
-      this.service.add(course).subscribe(resp => {
+      this.service.add(course).subscribe(() => {
         this.dialogRef.close();
       });
     }
